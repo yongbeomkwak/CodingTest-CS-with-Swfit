@@ -29,3 +29,19 @@ print(arr.sorted(by: { ($0[0], $0[1]) < ($1[0], $1[1]) }))
 
 print(arr.sorted { $0[0] == $1[0] ? $0[1] > $1[1] : $0[0] < $1[0] })
 // [["a", "2"], ["a", "1"], ["b", "3"], ["b", "2"], ["b", "1"], ["c", "4"]]
+
+
+// 클로저를 활용한 커스텀 정렬 
+
+let customSort: ([String], [String]) -> Bool = { a, b in
+    if a[0].lowercased() != b[0].lowercased() { // head 오름차순 
+        return a[0].lowercased() < b[0].lowercased()
+    } else {
+        if let n1 = Int(a[1]), let n2 = Int(b[1]), n1 != n2 { //number 오름차순
+            return n1 < n2 
+        }
+    }
+    return false // Stable sort를 위한 false(안 바꿈)
+}
+
+return splitFiles(files).sorted(by:customSort).compactMap{$0.joined()}

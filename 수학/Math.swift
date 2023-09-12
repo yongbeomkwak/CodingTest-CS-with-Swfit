@@ -47,7 +47,7 @@ floor(-3.658) // -4.0
 
 
 // 조합 
-
+// nCr
 func combination<T>(_ elements: [T], _ k: Int) -> [[T]] {
     var result = [[T]]()
     
