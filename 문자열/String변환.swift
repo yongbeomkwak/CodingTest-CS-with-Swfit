@@ -11,21 +11,12 @@ print(str.lowercased()) // "abcdefg"
 let str = "abcde"
 for c in str {
     var ascii = c.asciiValue!
-    var char = Character(UnicodeScalar(ascii))
+    var char = String(Character(UnicodeScalar(i)!))
     print(ascii)
     print(char) 
 }
-
-// 97
-// a
-// 98
-// b
-// 99
-// c
-// 100
-// d
-// 101
-// e
+// A: 65 Z:90
+// a: 97 z:122
 
 
 // replacingOccurrences를 통해 쉽게 치환할 수 있다

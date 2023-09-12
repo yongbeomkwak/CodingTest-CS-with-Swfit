@@ -12,3 +12,6 @@ print(myDict["d", default: -1])
         print($0.key)
         print($0.value)
 }
+
+// 삭제
+dict.removeValue(forKey: gems[left])
