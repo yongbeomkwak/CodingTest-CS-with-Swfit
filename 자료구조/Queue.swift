@@ -1,4 +1,4 @@
-struct Deque<T: Equatable> {
+struct Deque<T> {
     private var enqueue: [T]
     private var dequeue: [T] = []
     
@@ -43,9 +43,7 @@ struct Deque<T: Equatable> {
         }
         return returnValue
     }
-    mutating func contains(_ n: T) -> Bool {
-        return enqueue.contains(n) || dequeue.contains(n)
-    }
+
     mutating func removeAll() {
         enqueue.removeAll()
         dequeue.removeAll()
