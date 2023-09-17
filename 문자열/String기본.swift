@@ -7,3 +7,6 @@ expression.components(separatedBy: ["*", "+", "-"]).map{abs(Int64($0)!)}
 
 //조건으로 split
 dartResult.split(whereSeparator: {$0.isNumber})
+
+//소수 점
+String(format: "%.2f", PI)
