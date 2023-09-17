@@ -44,20 +44,21 @@ public struct Heap<T> {
 
         let result = nodes.first
         nodes.swapAt(0, nodes.count-1)
-        _ = nodes.popLast()
+        _ = nodes.popLast() // 결과는 제외 하고 
 
         var index = 0
 
+        //Heapify
         while index < nodes.count {
             let left = index * 2 + 1
             let right = left + 1
 
             if right < nodes.count {
                 if comparer(nodes[left], nodes[right]),
-                    !comparer(nodes[right], nodes[index]) {
+                    !comparer(nodes[right], nodes[index]) { //오른쪽과 index가 순서가 안 맞을 때 
                     nodes.swapAt(right, index)
                     index = right
-                } else if !comparer(nodes[left], nodes[index]){
+                } else if !comparer(nodes[left], nodes[index]){ // left와 index가 순서가 안 맞을 때 
                     nodes.swapAt(left, index)
                     index = left
                 } else {
