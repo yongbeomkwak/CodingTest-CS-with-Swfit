@@ -21,12 +21,14 @@ public struct Heap<T> {
     }
 
     // 삽입
-    mutating func push(_ element: T) {
-        var index = nodes.count
+    mutating func push(_ element: T) { 
+        
 
         nodes.append(element)
 
-        while index > 0, !comparer(nodes[index],nodes[(index-1)/2]) {
+        var index = nodes.count - 1 //마지막 원소 가르킴 (현재 들어간 원소)
+
+        while index > 0, !comparer(nodes[index],nodes[(index-1)/2]) { // 부모와 비교 후 정렬 기준에 맞지 않으면 swa
             nodes.swapAt(index, (index-1)/2)
             index = (index-1)/2
         }
@@ -39,12 +41,12 @@ public struct Heap<T> {
         }
 
         if nodes.count == 1 {
-            return nodes.removeFirst()
+            return nodes.removeLast()
         }
 
-        let result = nodes.first
-        nodes.swapAt(0, nodes.count-1)
-        _ = nodes.popLast() // 결과는 제외 하고 
+      
+        nodes.swapAt(0, nodes.count-1) //꺼낼 top을 마지막이랑  swap 후 
+        let result = nodes.popLast() // 꺼냄 
 
         var index = 0
 
