@@ -28,9 +28,12 @@ public struct Heap<T> {
 
         var index = nodes.count - 1 //마지막 원소 가르킴 (현재 들어간 원소)
 
-        while index > 0, !comparer(nodes[index],nodes[(index-1)/2]) { // 부모와 비교 후 정렬 기준에 맞지 않으면 swa
-            nodes.swapAt(index, (index-1)/2)
-            index = (index-1)/2
+        while index > 0, !comparer(nodes[index],nodes[(index-1)/2]) { // 부모와 비교 후 정렬 기준에 맞지 않으면 swap
+
+            let parent:Int = (index-1)/2
+
+            nodes.swapAt(index, parent)
+            index = parent
         }
     }
 
