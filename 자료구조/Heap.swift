@@ -1,5 +1,6 @@
 import Foundation
 
+//배열 저장 못함 .. 튜플을 이용해야함 Heap<[Int,Int]> (x) -> Heap<(Int,Int)>
 public struct Heap<T> {
     // 전체 노드
     var nodes: [T] = []
