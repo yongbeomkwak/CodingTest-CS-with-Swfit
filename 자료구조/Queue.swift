@@ -1,51 +1,46 @@
-struct Deque<T> {
-    private var enqueue: [T]
-    private var dequeue: [T] = []
+struct Queue<T> {
     
-    public var count: Int {
-        return enqueue.count + dequeue.count
-    }
-    public var isEmpty: Bool {
-        return enqueue.isEmpty && dequeue.isEmpty
-    }
-    public var first: T? {
-        if dequeue.isEmpty {
-            return enqueue.first
-        }
-        return dequeue.last
+    var enque:[T]
+    
+    var deque:[T] = []
+    
+    init(_ enque: [T]) {
+        self.enque = enque
     }
     
-    init(_ queue: [T]) {
-        enqueue = queue
+    var isEmpty: Bool {
+        return enque.isEmpty && deque.isEmpty
     }
-    mutating func pushFirst(_ n: T) {
-        dequeue.append(n)
-    }
-    mutating func pushLast(_ n: T) {
-        enqueue.append(n)
-    }
-    mutating func popFirst() -> T? {
-        if dequeue.isEmpty {
-            dequeue = enqueue.reversed()
-            enqueue.removeAll()
+    
+    
+    var front:T? {
+        
+        if deque.isEmpty {
+            return enque.first
         }
-        return dequeue.popLast()
+        
+        return enque.last 
         
     }
-    mutating func popLast() -> T? {
-        var returnValue: T?
-        if enqueue.isEmpty {
-            dequeue.reverse()
-            returnValue = dequeue.popLast()
-            dequeue.reverse()
-        } else {
-            returnValue = enqueue.popLast()
+    
+    mutating func pop() -> T? {
+        
+        if deque.isEmpty {
+            
+            deque = enque.reversed()
+            enque.removeAll()
         }
-        return returnValue
+        
+        return deque.popLast()
+        
     }
+    
+    mutating func push(_ element:T) {
+        
+        enque.append(element)
+    }
+    
 
-    mutating func removeAll() {
-        enqueue.removeAll()
-        dequeue.removeAll()
-    }
+    
+    
 }
