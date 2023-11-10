@@ -17,5 +17,7 @@ arr.reduce(into:초기값){
     $0(초깃값) + $1(arr의 요소) 
 }
 
+arr.firstIndex(of: _elements.max()!): 왼쪽부터 최댓값 인덱스 접근 
+
 
 arr.remove(at:0) : 0번 째 인덱스 제거 및 리턴 
