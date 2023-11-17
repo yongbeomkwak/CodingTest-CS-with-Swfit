@@ -12,7 +12,7 @@ integerSet.insert(100)
 print(intigerSet) // {100, 99, 1}
 
 // contains: 멤버 포함 여부 확인
-print(integerSet.contatins(1)) // true
+print(integerSet.contains(1)) // true
 print(integerSet.contains(2)) // false
 
 // remove: 멤버 삭제
