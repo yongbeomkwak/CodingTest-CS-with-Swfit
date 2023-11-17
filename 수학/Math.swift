@@ -66,7 +66,7 @@ func combination<T>(_ elements: [T], _ k: Int) -> [[T]] {
 
 let arr = [1, 2, 3, 4]
 let combi = combination(arr, 3)
-
+    
 
 // 순열
 

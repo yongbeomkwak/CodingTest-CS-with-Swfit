@@ -12,7 +12,7 @@ public struct Heap<T> {
     }
 
     // 예를 들어, Heap<Int>(comparer: >=) 는 Min Heap
-    init(comparer: @escaping (T,T) -> Bool) {
+    init(_ comparer: @escaping (T,T) -> Bool) {
         self.comparer = comparer
     }
 
