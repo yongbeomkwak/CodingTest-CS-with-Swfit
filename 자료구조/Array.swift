@@ -21,3 +21,11 @@ arr.firstIndex(of: _elements.max()!): 왼쪽부터 최댓값 인덱스 접근
 
 
 arr.remove(at:0) : 0번 째 인덱스 제거 및 리턴 
+
+var numbers = [1, 2, 3, 4, 5]
+numbers.insert(100, at: 3)
+numbers.insert(200, at: numbers.endIndex)
+
+
+print(numbers)
+// Prints "[1, 2, 3, 100, 4, 5, 200]"//100을 3인덱스에
