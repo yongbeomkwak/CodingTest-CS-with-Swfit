@@ -10,7 +10,7 @@ Set 심지어는 원소 타입만 맞으면 셀 수 있는 범위값도 들어�
 
 
 
-arr.enumerated()
+arr.enumerated(): (offset,element) 튜플을 리턴 
 
 
 arr.reduce(into:초기값){

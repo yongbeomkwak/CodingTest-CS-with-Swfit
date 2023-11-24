@@ -10,3 +10,9 @@ dartResult.split(whereSeparator: {$0.isNumber})
 
 //소수 점
 String(format: "%.2f", PI)
+
+
+// "A" ~ "Z"
+for i in 0...25 {
+    dictionary.append(String(Character(UnicodeScalar(65+i)!)))
+}
