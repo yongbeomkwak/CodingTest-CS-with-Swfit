@@ -16,3 +16,8 @@ String(format: "%.2f", PI)
 for i in 0...25 {
     dictionary.append(String(Character(UnicodeScalar(65+i)!)))
 }
+
+// "a" ~ "z"
+for i in 0...25 {
+    dictionary.append(String(Character(UnicodeScalar(97+i)!)))
+}
