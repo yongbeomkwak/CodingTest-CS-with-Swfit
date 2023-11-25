@@ -5,6 +5,14 @@ let myDict = ["a" : 1, "b" : 2, "c" : 3]
 
 print(myDict["d", default: -1])
 
+// 1. Key 모두 나열하기
+dict1.keys                         // "height, "age"
+dict1.keys.sorted()                // "age", "height
+ 
+// 2. Value 모두 나열하기
+dict1.values                       // 165, 100
+dict1.values.sorted()              // 100, 165
+
 
 //forEach  $0.key ,$0.value로 접근
 
@@ -15,3 +23,4 @@ print(myDict["d", default: -1])
 
 // 삭제
 dict.removeValue(forKey: gems[left])
+

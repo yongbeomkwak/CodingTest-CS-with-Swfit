@@ -14,7 +14,7 @@ func effect (_ degreeResult: inout [[Int]], _ skill:[Int]) {
      c1 = 1 , c2 = 2 일 때
      d = degree
     
-        0  1  2  3
+        0  1  2  3(r2+1)
     
     0           
     
@@ -23,7 +23,7 @@ func effect (_ degreeResult: inout [[Int]], _ skill:[Int]) {
     2      
     
     3      -d     d
-    
+    (c2+1)
     
        
     */
