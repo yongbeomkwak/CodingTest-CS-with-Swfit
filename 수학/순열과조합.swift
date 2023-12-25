@@ -75,8 +75,8 @@ func Rcombination<T>(_ elements: [T], _ k: Int) -> [[T]] {
             result.append(now)
             return
         }
-        for i in 0..<elements.count {
-            Rcombi(i + 1, now + [elements[i]])
+        for i in index..<elements.count {
+            Rcombi(i, now + [elements[i]])
         }
     }
     Rcombi(0, [])
