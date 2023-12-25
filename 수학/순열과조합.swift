@@ -52,7 +52,7 @@ func Rpermutation<T>(_ elements: [T], _ k: Int) -> [[T]] {
     var result = [[T]]()
     var visited = [Bool](repeating: false, count: elements.count)
     
-    func Rpermute(_ now: [T]) {
+    func Rpermut(_ now: [T]) {
         if now.count == k {
             result.append(now)
             return
