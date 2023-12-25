@@ -50,7 +50,6 @@ let combi = combination(arr, 3)
 // 중복 순열  nPIr
 func Rpermutation<T>(_ elements: [T], _ k: Int) -> [[T]] {
     var result = [[T]]()
-    var visited = [Bool](repeating: false, count: elements.count)
     
     func Rpermut(_ now: [T]) {
         if now.count == k {
