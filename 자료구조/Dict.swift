@@ -24,3 +24,18 @@ dict1.values.sorted()              // 100, 165
 // 삭제
 dict.removeValue(forKey: gems[left])
 
+
+// 익스텐션 
+extension Dictionary where Key == Int64, Value == Int64 { // Key와 Value가  Int64 Type일 때
+    mutating func getRoomNumber(_ n: Int64) -> Int64{
+        guard let s = self[n] else { 
+            self[n] = n + 1
+            return n
+        }
+
+        let newRoom = getRoomNumber(s)
+        self[n] = newRoom
+
+        return newRoom
+    }
+}
