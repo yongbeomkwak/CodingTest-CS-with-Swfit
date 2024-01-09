@@ -23,3 +23,29 @@
     </ul>
 </div>
 </details>
+
+<br>
+
+### 해싱과 해시
+
+<br>
+
+<details>
+<summary><b><i>해시</b></i></summary>
+<div markdown="1">
+    <ul>
+      <li><b><i>다양한 길이를 가진 데이터를 공저된 길이를 가진 데이터로 매핑한 값</i></b></li>
+    </ul>
+</div>
+</details>
+
+<br>
+
+<details>
+<summary><b><i>해싱</b></i></summary>
+<div markdown="1">
+    <ul>
+      <li> 임의의 데이터를 <b><i>해시</i></b>로 바꿔주는 일이며 해시 함수가 이를 담당함</li>
+    </ul>
+</div>
+</details>
