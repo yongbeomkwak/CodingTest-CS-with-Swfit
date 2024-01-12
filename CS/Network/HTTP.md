@@ -34,7 +34,7 @@
 <summary><b><i>해시</b></i></summary>
 <div markdown="1">
     <ul>
-      <li><b><i>다양한 길이를 가진 데이터를 공저된 길이를 가진 데이터로 매핑한 값</i></b></li>
+      <li><b><i>다양한 길이를 가진 데이터를 고정된 길이를 가진 데이터로 매핑한 값</i></b></li>
     </ul>
 </div>
 </details>
