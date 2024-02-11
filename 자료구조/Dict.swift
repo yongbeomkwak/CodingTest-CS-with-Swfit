@@ -39,3 +39,11 @@ extension Dictionary where Key == Int64, Value == Int64 { // Key와 Value가  In
         return newRoom
     }
 }
+
+// 딕셔너리 이용해서 Python CountDict 사용하기
+
+let  tangerine : [Int] = [1, 3, 2, 5, 4, 5, 2, 3]
+
+
+Dictionary(grouping: tangerine){$0} // key갑은 자기 자신
+// [3: [3, 3], 5: [5, 5], 2: [2, 2], 4: [4], 1: [1]]
