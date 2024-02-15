@@ -86,32 +86,13 @@ public struct Heap<T> {
     }
 }
 
-extension Heap where T: Comparable {
-    // 초기 설정을 해주지 않으면 Min Heap
-    init() {
-        self.init(comparer: >=)
-    }
-}
 
 
 /*
-// Min Heap 세팅
-var minHeap = Heap<Int>(comparer: >=)
+Min Heap 세팅
+var minHeap = Heap<Int>(>=)
 
-// Max Heap 세팅
-var maxHeap = Heap<Int>(comparer: <=)
-
-// 100 삽입                                     
-minHeap.push(100)
-
-// 삭제
-let _ = minHeap.pop()
-
-// top 반환
-let top = minHeap.top()
-
-// heap 원소 개수
-let heapCount = minHeap.nodes.count
-
+Max Heap 세팅
+var maxHeap = Heap<Int>(<=)
 
 */
