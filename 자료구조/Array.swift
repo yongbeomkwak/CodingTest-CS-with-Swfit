@@ -29,3 +29,23 @@ numbers.insert(200, at: numbers.endIndex)
 
 print(numbers)
 // Prints "[1, 2, 3, 100, 4, 5, 200]"//100을 3인덱스에
+
+// N x N  90도 회전
+// after[i][j] = before[n-j-1][i]
+
+var arr = [[1,2,3],[4,5,6],[7,8,9]]
+
+
+var rotate = [[0,0,0],[0,0,0],[0,0,0]]
+
+let n = 3
+
+for i in 0..<3 {
+    for j in 0..<3 {
+        rotate[i][j] = arr[n-j-1][i];
+    }
+}
+
+for i in 0..<n {
+    print(rotate[i])
+}
