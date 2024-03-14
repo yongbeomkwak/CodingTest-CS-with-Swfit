@@ -49,3 +49,76 @@ for i in 0..<3 {
 for i in 0..<n {
     print(rotate[i])
 }
+
+// 시계 및 반 시계 방향 회전 
+
+/// rotate(시작 행,시작 열,높이,너비,회전횟수,반시계 방향 여부)
+func rotate(_ r: Int,_ c: Int,_ h:Int, _ w:Int,_ roateCnt: Int,isCounter:Bool) {
+    
+    
+    let loopCount = min(r+h,c+w)/2
+    
+    
+    
+    for loop in 0..<loopCount { // 루프는 현재 가르키고 있는 태두리와 같다
+        
+        var tmp = [Int]()
+        
+        let endOfRight = c+w-loop-1
+        let endOfBottom = r+h-loop-1
+        
+        for i in loop..<endOfRight { // 루프의 가장위 가로 담기
+            tmp.append(arr[loop][i])
+        }
+      
+        for i in loop..<endOfBottom {
+            tmp.append(arr[i][endOfRight]) // 오른쪽 끝 세로 담기
+        }
+    
+        // 아래쪽 끝을 오른쪽부터 담기
+        for i in stride(from: endOfRight-1, through:loop, by: -1) {
+            tmp.append(arr[endOfBottom][i+1])
+        }
+        
+        //왼쪽 끝을 아래부터 담기
+        for i in stride(from: endOfBottom-1, through: loop, by: -1) {
+            tmp.append(arr[i+1][loop])
+        }
+        
+        
+        let len = tmp.count
+        let move = roateCnt%len
+        
+        tmp = isCounter ?  Array(tmp[move..<len] + tmp[0..<move]) : Array(tmp[len-move..<len] + tmp[0..<len-move])
+        
+        var k = 0
+        
+        
+        for i in loop..<endOfRight { // 루프의 가장위 가로 담기
+            arr[loop][i] = tmp[k]
+            k+=1
+        }
+      
+        for i in loop..<endOfBottom {
+            arr[i][endOfRight] = tmp[k] // 오른쪽 끝 세로 담기
+            k+=1
+        }
+        
+        
+        // 아래쪽 끝을 오른쪽부터 담기
+        for i in stride(from: endOfRight-1, through:loop, by: -1) {
+            arr[endOfBottom][i+1] = tmp[k]
+            k+=1
+        }
+        
+        //왼쪽 끝을 아래부터 담기
+        for i in stride(from: endOfBottom-1, through: loop, by: -1) {
+            arr[i+1][loop] = tmp[k]
+            k+=1
+        }
+        
+        
+    }
+    
+    
+}
