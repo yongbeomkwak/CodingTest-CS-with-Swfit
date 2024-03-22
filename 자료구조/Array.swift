@@ -52,73 +52,83 @@ for i in 0..<n {
 
 // 시계 및 반 시계 방향 회전 
 
-/// rotate(시작 행,시작 열,높이,너비,회전횟수,반시계 방향 여부)
-func rotate(_ r: Int,_ c: Int,_ h:Int, _ w:Int,_ roateCnt: Int,isCounter:Bool) {
+func rotate(_ x:Int,_ y: Int,_ h:Int,_ w:Int,_ rotateCnt: Int,_ isCounter: Bool) {
     
+    /*
+     
+     (x,y) : 좌측 위 (세로,가로)
+     h: 높이
+     w: 가로
+     rotateCnt: 회전 횟수
+     isCounter: 반시계 여부 (true(반)/false(시계))
+     */
+
     
-    let loopCount = min(r+h,c+w)/2
-    
-    
-    
-    for loop in 0..<loopCount { // 루프는 현재 가르키고 있는 태두리와 같다
+    let loopCounter = min(x+h,y+w)/2 // 전체부터 내부까지 돌릴 횟수
         
+    for l in 0..<loopCounter { // l = 현재 가장 바깥 사각형을 가르킴
         var tmp = [Int]()
+        let left = y+l // 회전 사각형 좌측
+        let top = x+l // 회전 사각형 상단
+        let rihgt = y+w-1-l //회전 사각형 오측
+        let bottom = x+h-1-l //회전 사각형 하단
         
-        let endOfRight = c+w-loop-1
-        let endOfBottom = r+h-loop-1
-        
-        for i in loop..<endOfRight { // 루프의 가장위 가로 담기
-            tmp.append(arr[loop][i])
-        }
-      
-        for i in loop..<endOfBottom {
-            tmp.append(arr[i][endOfRight]) // 오른쪽 끝 세로 담기
-        }
-    
-        // 아래쪽 끝을 오른쪽부터 담기
-        for i in stride(from: endOfRight-1, through:loop, by: -1) {
-            tmp.append(arr[endOfBottom][i+1])
+        // 상단 left ~ right 전까지
+        for i in stride(from: left, to: rihgt, by: 1) {
+            tmp.append(board[top][i])
         }
         
-        //왼쪽 끝을 아래부터 담기
-        for i in stride(from: endOfBottom-1, through: loop, by: -1) {
-            tmp.append(arr[i+1][loop])
+        // 우측 top ~ bottom 전까지
+        for i in stride(from: top, to: bottom, by: 1) {
+            tmp.append(board[i][rihgt])
         }
         
+        // 하단 right ~ left 전까지
+        for i in stride(from: rihgt, to: left, by: -1) {
+            tmp.append(board[bottom][i])
+        }
+        
+        // 좌측 bottom ~ top 전까지
+        for i in stride(from: bottom, to: top, by: -1) {
+            tmp.append(board[i][left])
+        }
         
         let len = tmp.count
-        let move = roateCnt%len
         
+        if len == 0 { // 1개짜리는 회전할 필요 없음
+            break
+        }
+        
+        let move = rotateCnt%len // 움직일 칸
+        
+        // 반시계의 기준 =. move , 시계 기준 = len-move
         tmp = isCounter ?  Array(tmp[move..<len] + tmp[0..<move]) : Array(tmp[len-move..<len] + tmp[0..<len-move])
         
         var k = 0
         
-        
-        for i in loop..<endOfRight { // 루프의 가장위 가로 담기
-            arr[loop][i] = tmp[k]
-            k+=1
-        }
-      
-        for i in loop..<endOfBottom {
-            arr[i][endOfRight] = tmp[k] // 오른쪽 끝 세로 담기
-            k+=1
+        for i in stride(from: left, to: rihgt, by: 1) {
+            board[top][i] =  tmp[k]
+            k += 1
         }
         
-        
-        // 아래쪽 끝을 오른쪽부터 담기
-        for i in stride(from: endOfRight-1, through:loop, by: -1) {
-            arr[endOfBottom][i+1] = tmp[k]
-            k+=1
+        for i in stride(from: top, to: bottom, by: 1) {
+            board[i][rihgt] =  tmp[k]
+            k += 1
         }
         
-        //왼쪽 끝을 아래부터 담기
-        for i in stride(from: endOfBottom-1, through: loop, by: -1) {
-            arr[i+1][loop] = tmp[k]
-            k+=1
+        for i in stride(from: rihgt, to: left, by: -1) {
+            board[bottom][i] = tmp[k]
+            k += 1
         }
+        
+        for i in stride(from: bottom, to: top, by: -1) {
+            board[i][left] = tmp[k]
+            k += 1
+        }
+        
+        
         
         
     }
-    
     
 }
