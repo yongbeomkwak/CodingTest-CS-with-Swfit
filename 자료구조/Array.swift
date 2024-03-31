@@ -70,8 +70,8 @@ func rotate(_ x:Int,_ y: Int,_ h:Int,_ w:Int,_ rotateCnt: Int,_ isCounter: Bool)
         var tmp = [Int]()
         let left = y+l // 회전 사각형 좌측
         let top = x+l // 회전 사각형 상단
-        let rihgt = y+w-1-l //회전 사각형 오측
-        let bottom = x+h-1-l //회전 사각형 하단
+        let rihgt = y+w-l //회전 사각형 오측
+        let bottom = x+h-l //회전 사각형 하단
         
         // 상단 left ~ right 전까지
         for i in stride(from: left, to: rihgt, by: 1) {
