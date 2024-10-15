@@ -1,6 +1,6 @@
 func lowerBound(_ arr: [Int], _ x: Int) -> Int {
   var start = 0
-  var end = arr.count - 1
+  var end = arr.count
   
   while (start < end) {
     let mid = (start + end) / 2
@@ -13,7 +13,7 @@ func lowerBound(_ arr: [Int], _ x: Int) -> Int {
 
 func upperBound(_ arr: [Int], _ x: Int) -> Int {
   var start = 0
-  var end = arr.count - 1
+  var end = arr.count
   
   while (start < end) {
     let mid = (start + end) / 2
